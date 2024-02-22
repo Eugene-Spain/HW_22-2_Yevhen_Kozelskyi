@@ -1,8 +1,8 @@
 const RED = 1;
 const BLACK = 2;
 
-let black = "Black"
-let red = "Red"
+let black = "black"
+let red = "red"
 
 let requestBalance = prompt("Welcome to casino 'R U Lucky?' How much money do you have? (Minimum '200' and Maximum '1000')")
 let requestSafety = prompt("How safe do you want to play? '1' - Just crazy risks , '2' - Risky, '3' - Safe, '4' - Super safe")
@@ -13,7 +13,7 @@ while (requestBalance >= 0) {
         alert(`Congratulations!!!! You won and now you have got ${requestBalance} $ in total!`)
         break;
     } else if(requestBalance > 50) {
-        let requestColor = prompt("Make a bid. 'Black' or 'Red'?")
+        let requestColor = prompt("Make a bid. 'black' or 'red'?")
         if (requestColor === black) {
             const CASINO = Math.floor(Math.random() * 2)+1;
             console.log(CASINO)
