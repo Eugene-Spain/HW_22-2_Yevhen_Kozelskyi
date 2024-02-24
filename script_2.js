@@ -15,42 +15,42 @@ while (requestBalance >= 0) {
     } else if(requestBalance > 50) {
         let requestColor = prompt("Make a bid. 'black' or 'red'?")
         if (requestColor === black) {
-            const CASINO = Math.floor(Math.random() * 2)+1;
+            const CASINO = Math.floor(Math.random() * 2);
             console.log(CASINO)
             requestColor = BLACK
-            requestBalance -= currentBid
             if (CASINO === BLACK) {  // да я понял что можно const RED и BLACK убирать, и просто выводить !CASINO либо !!CASINO , но как по мне то с переменными просто понятнее))
-                currentBid *= 2;
                 requestBalance += currentBid
                 console.log(requestBalance)
                 continue;
             } else {
-                currentBid+=10
+                requestBalance -= currentBid
+                currentBid *= 1.2
                 console.log(requestBalance)
-                if(requestBalance <=200){
+                if(requestBalance <=200 && requestBalance > 0){
                     alert(`${requestBalance} is all what you left. Be careful`)
                     continue;
-                }
-                
+                } else if (requestBalance <= 0){
+                    alert(`You have lost all your money... We are sorry. Your balance is 0$.`)
+                }   
             }
         } else if (requestColor === red) {
             const CASINO = Math.floor(Math.random() * 2);
             console.log(CASINO)
             requestColor = RED
-            requestBalance -= currentBid
             if (CASINO === RED) {
-                currentBid *= 2;
                 requestBalance += currentBid
                 console.log(requestBalance)
                 continue;
             } else {
-                currentBid+=10
+                requestBalance -= currentBid
+                currentBid *= 1.2
                 console.log(requestBalance)
-                if(requestBalance <=200){
+                if(requestBalance <=200 && requestBalance > 0){
                     alert(`${requestBalance} is all what you left. Be careful`)
                     continue;
+                }else if (requestBalance <= 0){
+                    alert(`You have lost all your money... We are sorry. Your balance is 0$.`)
                 }
-                
             }
         }
     } else {
