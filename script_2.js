@@ -17,12 +17,19 @@ function turnRoulette(color) {
         requestBalance -= currentBid
         if (requestBalance > 200) {
             alert(`You have lost ${currentBid} ! Your balance now is ${requestBalance} $. `)
+            let requestIncreaseBid = prompt(`Would you like to put more money in a bid? Option 0. You may increase it on 50%. Option 1. Don't increase anything. Insert '0' or '1' `) // ну под 0 и 1 не забивал переменные)
+            if (requestIncreaseBid) {
+                currentBid *= 1.5
+                alert(`Your bid was increased and now is ${currentBid} $`)
+            } else if (!requestIncreaseBid) {
+                alert(`Your bid was not increased and still ${currentBid} $`)
+            }
         } else if (requestBalance <= 200 && requestBalance > 0) {
-            alert(`${requestBalance} is all what you left. Be careful`)
+            alert(`${requestBalance} is all what you left. Be careful. You can't increase your bid now.`)
+            
         } else if (requestBalance <= 0) {
             alert(`You have lost all your money... We are sorry. Your balance is 0$.`)
         }
-        currentBid *= 1.2
     }
 }
 
